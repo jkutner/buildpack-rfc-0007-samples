@@ -1,3 +1,9 @@
+# lots of repeated stuff
+# - version, id
+# what happens when you fat-finger the id in the group?
+# maybe it resolves to a buildpack on the registry, and you publish
+# the wrong thing
+
 [[buildpacks]]
 id = "io.buildpacks.npm-nodejs"
 name = "NPM Node.js Buildpack"

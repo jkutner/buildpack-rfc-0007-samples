@@ -1,0 +1,9 @@
+[[buildpacks]]
+id = "io.buildpacks.yolo-nodejs"
+name = "YOLO Node.js Buildpack"
+version = "0.0.9"
+[[buildpacks.order]]
+group = [
+  { id = "io.buildpacks.node", version = "0.0.5" },
+  { path = "yolo-cnb" },
+]
