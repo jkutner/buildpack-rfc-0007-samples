@@ -1,9 +1,25 @@
-[[buildpacks]]
-id = "io.buildpacks.yolo-nodejs"
-name = "YOLO Node.js Buildpack"
+[project]
+id = "my-monorepo-apps"
+version = "0.1"
+author = "Joe"
+publish = false
+
+[[project.buildpacks]]
+id = "io.buildpacks.npm-nodejs"
 version = "0.0.9"
-[[buildpacks.order]]
-group = [
-  { id = "io.buildpacks.node", version = "0.0.5" },
-  { path = "yolo-cnb" },
-]
+
+[[image]]
+  path = "node-yolo-install-app"
+
+  [[image.buildpacks]]
+  id = "io.buildpacks.yolo-nodejs"
+  name = "YOLO Node.js Buildpack"
+  version = "0.0.9"
+  [[image.buildpacks.order]]
+  group = [
+    { id = "io.buildpacks.node", version = "0.0.5" },
+    { path = "yolo-cnb" },
+  ]
+
+[[image]]
+  path = "node-npm-install-app"

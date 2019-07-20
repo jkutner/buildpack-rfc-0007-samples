@@ -2,8 +2,8 @@
 id = "io.buildpacks.npm-nodejs"
 name = "NPM Node.js Buildpack"
 version = "0.0.9"
-[buildpack.order]
+[buildpacks.order]
 group = [
-  { path = "node-cnb" },
-  { path = "npm-cnb" },
+   { id = "io.buildpacks.node", version = "0.0.5" },
+   { path = "npm-cnb" },
 ]
