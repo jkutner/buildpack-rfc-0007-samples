@@ -1,0 +1,46 @@
+[[buildpacks]]
+id = "io.buildpacks.npm-nodejs"
+name = "NPM Node.js Buildpack"
+version = "0.0.9"
+[[buildpacks.order]]
+group = [
+   { id = "io.buildpacks.node", version = "0.0.5" },
+   { id = "io.buildpacks.npm", version = "0.0.7" },
+]
+
+[[buildpacks]]
+id = "io.buildpacks.yarn-nodejs"
+name = "Yarn Node.js Buildpack"
+version = "0.0.9"
+[[buildpacks.order]]
+group = [
+   { id = "io.buildpacks.node", version = "0.0.5" },
+   { id = "io.buildpacks.yarn", version = "0.0.7" },
+]
+
+[[buildpacks]]
+id = "io.buildpacks.npm"
+name = "NPM Buildpack"
+version = "0.0.7"
+path = "./npm-cnb/"
+
+[[buildpacks.stacks]]
+id = "io.buildpacks.stacks.bionic"
+
+[[buildpacks]]
+id = "io.buildpacks.yarn"
+name = "Yarn Buildpack"
+version = "0.0.7"
+path = "./yarn-cnb/"
+
+[[buildpacks.stacks]]
+id = "io.buildpacks.stacks.bionic"
+
+[[buildpacks]]
+id = "io.buildpacks.node"
+name = "Node Engine Buildpack"
+version = "0.0.5"
+path = "./node-cnb/"
+
+[[buildpacks.stacks]]
+id = "io.buildpacks.stacks.bionic"

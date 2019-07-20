@@ -1,0 +1,7 @@
+[buildpack]
+id = "io.buildpacks.yarn"
+name = "Yarn Buildpack"
+version = "0.0.7"
+
+[[buildpack.stacks]]
+id = "io.buildpacks.stacks.bionic"
