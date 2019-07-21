@@ -1,9 +1,12 @@
-# no top-level [buildpack], but that means some repos won't work when you
-# point directly at them (like using the github URL, local fs, or inline bp)
+# no top-level [buildpack] because this doesn't define a buildpackage that can
+# be used one its own (it requires some other input: the "default" buildpack),
+# but that means some repos won't work when you # point directly at them
+# (like using the github URL, local fs, or inline bp)
 # this might weaken the ecosystem by causing broking buildpack...
 # like when Rubygems allowed git gems w/o a gemspec
 
-[management]
+# the management section means this does not indicate a list of buildpacks that
+# are necessarily combined into an order
 [[management.buildpacks]]
 id = "io.buildpacks.npm-nodejs"
 name = "NPM Node.js Buildpack"

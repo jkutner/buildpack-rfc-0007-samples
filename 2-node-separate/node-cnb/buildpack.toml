@@ -5,3 +5,17 @@ version = "0.0.5"
 
 [[buildpack.stacks]]
 id = "io.buildpacks.stacks.bionic"
+
+[[buildpack.stacks]]
+id = "org.cloudfoundry.stacks.cflinuxfs3"
+
+[buildpack.metadata.dependencies]
+id      = "node"
+name    = "Node.js runtime"
+version = "0.1.1"
+uri     = "https://storage.googleapis.com/projectriff/node-function-invoker/releases/v0.1.1/node-function-invoker-0.1.1.tgz"
+sha256  = "18682e55a8cefcc5a7b76000138ab6856a75d5e607aa7af5d28f84e2217fc66a"
+stacks  = [
+  "io.buildpacks.stacks.bionic",
+  "org.cloudfoundry.stacks.cflinuxfs3",
+]

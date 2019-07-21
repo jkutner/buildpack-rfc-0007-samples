@@ -1,9 +1,19 @@
 [buildpack]
-id = "io.buildpacks.npm-nodejs"
+id = "io.buildpacks.npm-node"
 name = "NPM Node.js Buildpack"
 version = "0.0.9"
-[buildpacks.order]
+
+[buildpack.order]
 group = [
-   { id = "io.buildpacks.node", version = "0.0.5" },
-   { path = "npm-cnb" },
+  { id = "io.buildpacks.node", version = "0.0.5" },
+  { path = "npm-cnb" },
 ]
+
+[[management.buildpacks]]
+id = "io.buildpacks.npm"
+name = "NPM Buildpack"
+version = "0.0.7"
+path = "."
+
+[[management.buildpacks.stacks]]
+id = "io.buildpacks.stacks.bionic"

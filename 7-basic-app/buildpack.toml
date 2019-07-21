@@ -1,0 +1,7 @@
+[project]
+id = "yolo-sample-app"
+version = "0.1"
+
+[[project.buildpacks]]
+id = "io.buildpacks.node"
+version = "0.0.5"

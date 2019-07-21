@@ -4,22 +4,13 @@ version = "0.1"
 author = "Joe"
 publish = false
 
+# there's no buildpack.id so if this were pass into `pack create-package`
+# it would require an id/version. but that would allow you to package
+# the inline buildpack for distribution
+
 [[project.buildpacks]]
-id = "io.buildpacks.npm-nodejs"
-version = "0.0.9"
+id = "io.buildpacks.node"
+version = "0.0.5"
 
-[[image]]
-  path = "node-yolo-install-app"
-
-  [[image.buildpacks]]
-  id = "io.buildpacks.yolo-nodejs"
-  name = "YOLO Node.js Buildpack"
-  version = "0.0.9"
-  [[image.buildpacks.order]]
-  group = [
-    { id = "io.buildpacks.node", version = "0.0.5" },
-    { path = "yolo-cnb" },
-  ]
-
-[[image]]
-  path = "node-npm-install-app"
+[[project.buildpacks]]
+path = "./npm-cnb/"

@@ -1,0 +1,23 @@
+[buildpack]
+id = "io.buildpacks.yolo"
+name = "YOLO Buildpack"
+version = "0.0.9"
+
+[buildpack.order]
+group = [
+   { id = "io.buildpacks.node", version = "0.0.5" },
+   { path = "." }, # this feels like infinte recursion
+]
+
+[project]
+id = "yolo-sample-app"
+version = "0.1"
+path = "sample/"
+
+# or do you want this?
+[[project.buildpacks]]
+id = "io.buildpacks.node"
+version = "0.0.5"
+
+[[project.buildpacks]]
+path = "."
