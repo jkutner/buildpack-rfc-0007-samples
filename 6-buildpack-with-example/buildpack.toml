@@ -1,23 +1,14 @@
-[buildpack]
+[package]
 id = "io.buildpacks.yolo"
 name = "YOLO Buildpack"
 version = "0.0.9"
 
-[buildpack.order]
+[package.order]
 group = [
    { id = "io.buildpacks.node", version = "0.0.5" },
    { path = "." }, # this feels like infinte recursion
 ]
 
-[project]
-id = "yolo-sample-app"
-version = "0.1"
-path = "sample/"
-
-# or do you want this?
-[[project.buildpacks]]
-id = "io.buildpacks.node"
-version = "0.0.5"
-
-[[project.buildpacks]]
-path = "."
+# QUESTION: how to point to the buildpack.toml in the `sample/` dir?
+# or does the sample/buildpack.toml point back to this buildpack like:
+#      path = "../buildpack.toml"

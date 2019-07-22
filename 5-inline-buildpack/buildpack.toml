@@ -4,10 +4,8 @@ version = "0.1"
 author = "Joe"
 publish = false
 
-# there's no buildpack.id so if this were pass into `pack create-package`
-# it would require an id/version. but that would allow you to package
-# the inline buildpack for distribution
-
+# it would be nice if this could just be the `[[buildpacks]]` table
+# but that's used by the other thing
 [[package.buildpacks]]
 id = "io.buildpacks.node"
 version = "0.0.5"
