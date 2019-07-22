@@ -2,11 +2,11 @@
 # no need to repeat metadata, or other config
 # `pack create-package` can point directly at a file, or provide it's own.
 
-[buildpack]
+[package]
 id = "io.buildpacks.npm-nodejs"
 name = "NPM Node.js Buildpack"
 version = "0.0.9"
-[buildpack.order]
+[package.order]
 group = [
   { path = "node-cnb" },
   { path = "npm-cnb" },

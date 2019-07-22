@@ -1,19 +1,18 @@
-[buildpack]
-id = "io.buildpacks.npm-node"
-name = "NPM Node.js Buildpack"
+[package]
+id = "io.buildpacks.ruby"
+name = "Ruby Buildpack"
+version = "0.0.7"
+[[package.stacks]]
+id = "io.buildpacks.stacks.bionic"
+
+# this section is lost when the io.buildpacks.npm is published
+[[buildpacks]]
+id = "io.buildpacks.ruby-node"
+name = "Ruby with Node.js Buildpack"
 version = "0.0.9"
 
-[buildpack.order]
+[buildpacks.order]
 group = [
-  { id = "io.buildpacks.node", version = "0.0.5" },
-  { path = "npm-cnb" },
+  { id = "io.buildpacks.node", version = "0.0.5", optional = true },
+  { id = "io.buildpacks.ruby", version = "0.0.7" },
 ]
-
-[[management.buildpacks]]
-id = "io.buildpacks.npm"
-name = "NPM Buildpack"
-version = "0.0.7"
-path = "."
-
-[[management.buildpacks.stacks]]
-id = "io.buildpacks.stacks.bionic"
