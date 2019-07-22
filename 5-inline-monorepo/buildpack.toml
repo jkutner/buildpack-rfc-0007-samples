@@ -1,32 +1,28 @@
-[project]
+[package]
 id = "my-monorepo-apps"
 version = "0.1"
 author = "Joe"
 publish = false
 
-# there's no buildpack.id so if this were pass into `pack create-package`
-# it would require an id/version. but that would allow you to package
-# the inline buildpack for distribution
-
-[[project.buildpacks]]
+[[package.buildpacks]]
 id = "io.buildpacks.yolo-nodejs"
 
-[[management.buildpacks]]
+[[buildpacks]]
 id = "io.buildpacks.yolo-nodejs"
 name = "YOLO Node.js Buildpack"
 version = "0.0.9"
 
-[[management.buildpacks.order]]
+[[buildpacks.order]]
 group = [
    { id = "io.buildpacks.node", version = "0.0.5" },
    { id = "io.buildpacks.yolo", version = "0.0.7" },
 ]
 
-[[management.buildpacks]]
+[[buildpacks]]
 id = "io.buildpacks.yolo"
 name = "YOLO Buildpack"
 version = "0.0.7"
 path = "./yolo-cnb/"
 
-[[management.buildpacks.stacks]]
+[[buildpacks.stacks]]
 id = "io.buildpacks.stacks.bionic"

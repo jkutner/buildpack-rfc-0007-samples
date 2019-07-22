@@ -1,4 +1,4 @@
-[project]
+[package]
 id = "my-monorepo-apps"
 version = "0.1"
 author = "Joe"
@@ -8,9 +8,9 @@ publish = false
 # it would require an id/version. but that would allow you to package
 # the inline buildpack for distribution
 
-[[project.buildpacks]]
+[[package.buildpacks]]
 id = "io.buildpacks.node"
 version = "0.0.5"
 
-[[project.buildpacks]]
+[[package.buildpacks]]
 path = "./npm-cnb/"
