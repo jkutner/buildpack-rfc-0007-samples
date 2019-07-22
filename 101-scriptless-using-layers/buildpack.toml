@@ -1,0 +1,38 @@
+[buildpack]
+id = "io.buildpacks.zulu"
+name = "Azul Zulu Buildpack"
+version = "0.0.9"
+
+[buildpack.detect]
+provides = [
+  "jdk"
+]
+
+# if there is a bin/build, this will always run first.
+[[buildpack.build.layers]]
+id = "jdk" # lifecycle will check if this layer exists/cached
+cache = "true"
+launch = "true"
+build = "true"
+run = [
+  "export JDK_URL=https://cdn.azul.com/zulu/bin/zulu8.28.0.1-jdk8.0.163-linux_x64.tar.gz",
+  "wget -q -O - $JDK_URL | tar pxz -C $1/jdk --strip-components=1"
+]
+
+  [buildpack.build.layers.metadata]
+  version = "zulu-1.8.0_163"
+
+  [buildpack.build.layers.env]
+  JAVA_HOME = "$1/jdk"
+  LD_LIBRARY_PATH = "$JAVA_HOME/jre/lib/amd64/server"
+
+  [[buildpack.build.layers.profile]]
+  name = "jdk.sh"
+  script = [
+    "export JAVA_HOME=$1/jdk",
+    "export LD_LIBRARY_PATH=$JAVA_HOME/jre/lib/amd64/server"
+  ]
+
+[[buildpack.build.launch.processes]]
+type = "web"
+command = "java -jar *.jar"

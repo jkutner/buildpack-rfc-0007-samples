@@ -1,0 +1,25 @@
+[buildpack]
+id = "io.buildpacks.warbler"
+name = "Warbler Buildpack"
+version = "0.0.9"
+
+[buildpack.detect]
+requires = [
+  "jruby",
+  "warbler",
+  "bundler"
+]
+provides = [
+  "war"
+]
+
+# if there is a bin/build, this will always run first.
+[buildpack.build]
+run = [
+  "rake war",
+  "rake db:migrate"
+]
+
+[[buildpack.build.launch.processes]]
+type = "web"
+command = "java -jar myapp.war"
