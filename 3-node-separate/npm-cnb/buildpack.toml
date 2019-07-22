@@ -1,7 +1,7 @@
-[buildpack]
+[package]
 id = "io.buildpacks.npm"
 name = "NPM Buildpack"
 version = "0.0.7"
 
-[[buildpack.stacks]]
+[[package.stacks]]
 id = "io.buildpacks.stacks.bionic"
